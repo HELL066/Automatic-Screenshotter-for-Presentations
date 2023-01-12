@@ -5,7 +5,6 @@ import PIL
 import numpy as np
 from PIL import ImageGrab
 from functools import partial
-from PIL import Image
 import time
 import cv2
 from PIL import Image, ImageChops
