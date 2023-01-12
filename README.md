@@ -1,0 +1,1 @@
+# Automatic-Screenshotter-for-Presentations
