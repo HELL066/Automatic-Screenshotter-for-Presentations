@@ -1,9 +1,9 @@
 # Automatic-Screenshotter-for-Presentations
-## About
+## Description
 
 This script uses the PyAutoGUI and PIL libraries to take screenshots of a specified screen at a specified interval and save them to a specified folder. The script prompts the user for the screen to capture, the interval between screenshots, the folder to save the screenshots, and the percentage change required before a new screenshot is taken. The script then compares the current screenshot to the previous screenshot and saves the current screenshot only if the difference in pixels between the two images exceeds the specified percentage. The script will run indefinitely until the user terminates it.
 
-## Setup
+## Getting Started
 
 1. Install the necessary libraries by running the following command:
 ```
@@ -23,3 +23,16 @@ pip install -r requirements.txt
 
 Please note that the script will run indefinitely until you manually stop it.
 
+## Built With
+- [Python](https://www.python.org/) - The programming language used
+- [PyAutoGUI](https://pypi.org/project/PyAutoGUI/) - A library for automating mouse and keyboard actions
+- [Pillow](https://pypi.org/project/Pillow/) - A library for working with image files
+- [Numpy](https://numpy.org/) - A library for working with arrays and matrices
+- [OpenCV](https://opencv.org/) - A library for working with image and video data
+- [Keyboard](https://pypi.org/project/keyboard/) - A library for controlling and monitoring the keyboard
+## Authors
+- HELL066 - [GitHub Profile](https://github.com/HELL066)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
