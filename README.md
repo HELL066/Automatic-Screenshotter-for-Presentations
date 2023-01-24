@@ -13,13 +13,8 @@ pip install -r requirements.txt
 3. Download or copy the script to your machine and save it in a desired location.
 4. Open a command prompt or terminal and navigate to the location where the script is saved.
 5. Run the script by typing python script_name.py (replace script_name.py with the actual name of the script file) and press enter.
-6. The script will prompt you to enter the following information:
-- How many seconds of delay between each screenshot do you want?
-- Which screen do you want to take a screenshot of? (Enter 1 for the first screen, 2 for the second screen)
-- What folder do you want the screenshot to be saved in?
-- What percentage change do you want before it'll screenshot? (enter 40 if you want 40%)
-7. After providing the required information, the script will start running and take screenshots at the specified interval. The screenshots will be saved in the specified folder and will only be saved if the difference in pixels between the current screenshot and the previous screenshot exceeds the specified percentage change.
-8. To stop the script, use the keyboard interrupt (ctrl + c)
+6. After providing the required information, the script will start running and take screenshots at the specified interval. The screenshots will be saved in the specified folder and will only be saved if the difference in pixels between the current screenshot and the previous screenshot exceeds the specified percentage change.
+7. To stop the script, use the keyboard interrupt (ctrl + c)
 
 Please note that the script will run indefinitely until you manually stop it.
 
