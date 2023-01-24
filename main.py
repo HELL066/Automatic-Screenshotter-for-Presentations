@@ -1,13 +1,10 @@
-import pyautogui
-import keyboard
-import os
-import PIL
 import numpy as np
-from PIL import ImageGrab
+import pyautogui
+import os
 from functools import partial
 import time
+from PIL import Image, ImageGrab
 import cv2
-from PIL import Image, ImageChops
 
 other_count = 0
 ImageGrab.grab = partial(ImageGrab.grab, all_screens=True)
@@ -21,33 +18,17 @@ cooldown_time = int(
     pyautogui.prompt("How many seconds of delay between each screenshot do you want?")
 )
 
-other_count = 0
-
-# Get the size of the second screen
-second_screen_width, second_screen_height = pyautogui.size()
-second_screen_x = second_screen_width
-second_screen_y = 0
-
-count = 0
-start_time = time.time()
-
 
 def compare_images(image1, image2):
-    # Open the images
-    img1 = Image.open(image1)
-    img2 = Image.open(image2)
-
-    # Calculate the absolute difference between the two images
-    diff = ImageChops.difference(img1, img2)
-
-    # Convert the image to grayscale, get the pixel values of the image and calculate the percentage of different pixels
-    diff = diff.convert("L")
-    pixels = diff.getdata()
-    n_diff = sum(1 for pix in pixels if pix != 0)
-    img_size = img1.size[0] * img1.size[1]
-    percent_diff = (n_diff / img_size) * 100
-    return percent_diff
-
+    img1 = cv2.imread(image1)
+    img2 = cv2.imread(image2)
+    img1 = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
+    img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
+    res = cv2.absdiff(img1, img2)
+    res = res.astype(np.uint8)
+    percentage = (np.count_nonzero(res) * 100) / res.size
+    print(percentage)
+    return percentage
 
 def save_screenshot(file_path, diff):
     diff = int(diff)
@@ -101,7 +82,9 @@ file_path = os.path.join(file_path, "")
 diff = pyautogui.prompt(
     "What percentage change do you want before it'll screenshot? (enter 40 if you want 40%)"
 )
-# Take the first screenshot
+count = int(pyautogui.prompt(
+    "What was the previous number of the last screenshot (if you want to continue) Enter 0 if you don't want to.)"
+))
 save_screenshot(file_path, diff)
 
 while True:
